@@ -1,8 +1,6 @@
 #include "Game.h"
 #include "Player.h"
-
-const int screenWidth = 800;
-const int screenHeight = 450;
+#include "Obstacle.h"
 
 
 int Start()
@@ -23,6 +21,7 @@ int Start()
     {
         PlayerMovement(playerPos, playerSize, speed);
 
+        ObstacleMovement(obstaclePos, speed);
 
         BeginDrawing();
 

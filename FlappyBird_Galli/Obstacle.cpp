@@ -1,6 +1,6 @@
 #include "Obstacle.h"
 
-obstacleMovement(Vector2& obstaclePos, float speed)
+void ObstacleMovement(Vector2& obstaclePos, float speed)
 {
     obstaclePos.x -= 1 * GetFrameTime() * speed;
 
