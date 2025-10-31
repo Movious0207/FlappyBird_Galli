@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include "Obstacle.h"
+#include "Collisions.h"
 
 
 int Start()
@@ -8,7 +9,7 @@ int Start()
     srand((unsigned int)time(nullptr));
 
     Vector2 playerPos = { 0 };
-    int playerSize = 40;
+    float playerSize = 40;
 
     Vector2 obstaclePos = { 0 };
 
@@ -22,6 +23,12 @@ int Start()
         PlayerMovement(playerPos, playerSize, speed);
 
         ObstacleMovement(obstaclePos, speed);
+
+        if (rectToRect(playerPos,{playerSize,playerSize},obstaclePos,{40,screenHeight}))
+        {
+            playerPos.y = 0;
+            obstaclePos.x = 0 - 40;
+        }
 
         BeginDrawing();
 
